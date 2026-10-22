@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>Quiz: Phép biện chứng duy vật</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Quiz Phép biện chứng duy vật" id="brand-home">
+        <span class="brand-mark">Q</span>
+        <span><strong>TRIẾT HỌC</strong><small>PHÉP BIỆN CHỨNG DUY VẬT</small></span>
+      </a>
+      <div class="top-pill"><span class="status-dot"></span> CHẾ ĐỘ LUYỆN TẬP</div>
+    </header>
+
+    <section class="screen active" id="start-screen" aria-labelledby="hero-title">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="eyebrow-line"></span> HỌC QUA TRẢI NGHIỆM</p>
+          <h1 id="hero-title">Biện chứng<br><span>trong từng câu hỏi.</span></h1>
+          <p class="hero-description">Ôn tập kiến thức bằng 40 câu trắc nghiệm tương tác. Chọn đáp án, nhận phản hồi ngay và xem lại những phần cần củng cố.</p>
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="start-btn">Bắt đầu chơi <span aria-hidden="true">→</span></button>
+            <label class="switch-row" for="shuffle-toggle"><input type="checkbox" id="shuffle-toggle"><span class="switch-ui"></span><span>Trộn thứ tự câu hỏi</span></label>
+          </div>
+          <div class="hero-note"><span class="note-icon">✦</span> Không giới hạn thời gian · Có giải thích đáp án</div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="visual-orbit orbit-a"></div><div class="visual-orbit orbit-b"></div>
+          <div class="visual-core"><span class="core-symbol">∞</span><span class="core-caption">LIÊN HỆ<br>& PHÁT TRIỂN</span></div>
+          <div class="float-card float-card-top"><span class="float-icon purple">↗</span><span><b>40 câu hỏi</b><small>Kiểm tra kiến thức</small></span></div>
+          <div class="float-card float-card-bottom"><span class="float-icon mint">✓</span><span><b>Phản hồi tức thì</b><small>Học từ từng lựa chọn</small></span></div>
+          <div class="visual-star star-one">✳</div><div class="visual-star star-two">✦</div>
+        </div>
+      </div>
+      <div class="overview-grid">
+        <article class="overview-card"><span class="card-index">01</span><div><h3>Khái quát & hai nguyên lý</h3><p>10 câu · Mối liên hệ phổ biến, sự phát triển</p></div><span class="card-arrow">↗</span></article>
+        <article class="overview-card"><span class="card-index">02</span><div><h3>Sáu cặp phạm trù</h3><p>12 câu · Từ cái riêng đến khả năng và hiện thực</p></div><span class="card-arrow">↗</span></article>
+        <article class="overview-card"><span class="card-index">03</span><div><h3>Ba quy luật cơ bản</h3><p>18 câu · Nguồn gốc, cách thức, khuynh hướng</p></div><span class="card-arrow">↗</span></article>
+      </div>
+    </section>
+
+    <section class="screen" id="quiz-screen" aria-labelledby="question-text">
+      <div class="quiz-toolbar">
+        <button class="text-button" id="exit-btn" title="Về màn hình đầu">← <span>Thoát bài</span></button>
+        <div class="quiz-count"><span id="question-number">CÂU 01</span><span class="count-divider">/</span><span id="question-total">40</span></div>
+        <div class="score-chip"><span class="score-star">★</span> <span id="live-score">0</span> điểm</div>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Tiến độ bài quiz" aria-valuemin="0" aria-valuemax="40" aria-valuenow="0" id="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="question-card">
+        <div class="question-meta"><span class="section-badge" id="section-badge">KHÁI QUÁT & HAI NGUYÊN LÝ</span><span class="choose-hint">Chọn một đáp án đúng</span></div>
+        <h2 id="question-text">Nội dung câu hỏi</h2>
+        <div class="answers-grid" id="answers-grid" role="group" aria-label="Các phương án trả lời"></div>
+        <div class="feedback" id="feedback" aria-live="polite" hidden></div>
+        <div class="question-footer"><span class="keyboard-hint"><kbd>A</kbd>–<kbd>D</kbd> để chọn đáp án</span><button class="btn btn-primary btn-next" id="next-btn" disabled>Chọn đáp án <span aria-hidden="true">→</span></button></div>
+      </div>
+      <div class="quiz-bottom"><span><span class="bottom-dot"></span> Tiến độ được tính theo câu đã trả lời</span><span id="answered-label">0 câu đã trả lời</span></div>
+    </section>
+
+    <section class="screen" id="result-screen" aria-labelledby="result-title">
+      <div class="result-heading"><p class="eyebrow"><span class="eyebrow-line"></span> HOÀN THÀNH BÀI QUIZ</p><h1 id="result-title">Bạn đã đi hết<br><span>một vòng biện chứng.</span></h1><p class="result-subtitle" id="result-message">Kết quả của bạn đã sẵn sàng.</p></div>
+      <div class="result-panel">
+        <div class="score-ring" id="score-ring"><div class="ring-inner"><strong id="final-percent">0%</strong><span>CHÍNH XÁC</span></div></div>
+        <div class="result-stats"><div class="stat-item"><span class="stat-icon correct-icon">✓</span><div><strong id="correct-count">0</strong><small>Câu đúng</small></div></div><div class="stat-item"><span class="stat-icon wrong-icon">×</span><div><strong id="wrong-count">0</strong><small>Câu sai</small></div></div><div class="stat-item"><span class="stat-icon total-icon">◎</span><div><strong id="final-total">40</strong><small>Tổng số câu</small></div></div></div>
+        <div class="result-actions"><button class="btn btn-primary" id="retry-btn">Làm lại từ đầu ↻</button><button class="btn btn-secondary" id="wrong-only-btn">Ôn câu sai <span id="wrong-only-count"></span></button></div>
+      </div>
+      <div class="review-section"><div class="review-title-row"><div><p class="eyebrow">CỦNG CỐ KIẾN THỨC</p><h2>Những câu cần xem lại</h2></div><span class="review-counter" id="review-counter">0 câu</span></div><div class="review-list" id="review-list"></div></div>
+      <footer class="page-footer"><span>Tiếp tục luyện tập để ghi nhớ sâu hơn.</span><span>HTML · CSS · JavaScript</span></footer>
+    </section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
